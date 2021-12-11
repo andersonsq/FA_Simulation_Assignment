@@ -16,7 +16,7 @@ Your solution must also take into account the practicalities like accessibility 
 * [Part2: Robot simulation](#part2:-robot-simulation)
 * [Links](#links)
 
-## Part1: Plant Layout Design and Simulation
+## Part1: Plant layout design and simulation
 
 ### Evaluation:
 
@@ -29,7 +29,7 @@ Your solution must also take into account the practicalities like accessibility 
 - [x] Program your mechanism to identify the target with a vision sensor (color coding is fine)
 - [ ] Program the mechanism to pick and place the parts in the right conveyor
 
-## Part2: Robot Simulation
+## Part2: Robot simulation
 
 - [x] **Based on your requirement of workspace from your previous setup, select a type of mechansim and formulate its DH/MDH parameters. (more workspace is better)**
 
