@@ -12,11 +12,11 @@ Your task is to design a flexible manufacturing cell (FMC) with robot centered l
 Your solution must also take into account the practicalities like accessibility of robots and tools for maintenance, repair, and cleaning. Safety features like enclosures and a separate control station.
 
 ## Table of contents
-* [Part 1: Plant Layout Design and Simulation](#part-1:-plant-layout-design-and-simulation)
-* [Part 2: Robot Simulation](#part-2:-robot-simulation)
+* [Part1: Plant Layout Design and Simulation](#part1:-plant-layout-design-and-simulation)
+* [Part2: Robot Simulation](#part2:-robot-simulation)
 * [Links](#links)
 
-## Part 1: Plant Layout Design and Simulation
+## Part1: Plant Layout Design and Simulation
 
 ### Evaluation:
 
@@ -29,7 +29,7 @@ Your solution must also take into account the practicalities like accessibility 
 - [x] Program your mechanism to identify the target with a vision sensor (color coding is fine)
 - [ ] Program the mechanism to pick and place the parts in the right conveyor
 
-## Part 2: Robot Simulation
+## Part2: Robot Simulation
 
 - [x] **Based on your requirement of workspace from your previous setup, select a type of mechansim and formulate its DH/MDH parameters. (more workspace is better)**
 
