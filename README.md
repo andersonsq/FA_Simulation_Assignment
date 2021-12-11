@@ -9,29 +9,27 @@ Your task is to design a flexible manufacturing cell (FMC) with robot centered l
 3. Flexible in terms of volume and mix product handling
 4. Zero-defect product
 
-Your solution must also take into account the practicalities like accessibility of robots and tools for maintenance, repair, and cleaning. Safety features like enclosures and a separate control station. Following the successful design and implementation of the simulation, you must also provide two reports: one including the technical implementation details and assumptions made in developing the simulation, and the other for the client to prove that your solution works and convince them it is a good idea to implement your solution.
+Your solution must also take into account the practicalities like accessibility of robots and tools for maintenance, repair, and cleaning. Safety features like enclosures and a separate control station.
 
 ## Table of contents
-* [Part 1: Plant Layout Design and Simulation [3 pts]](#part-1:-plant-layout-design-and-simulation-[3-pts])
-* [General info](#general-info)
-* [Part 2: Robot Simulation [15 pts]](#part-2:-robot-simulation-[15-pts])
-* [Part 3: Analysis and Optimization of the cell](#part-3:-analysis-and-optimization-of-the-cell) 
-* [Part 4: Report Generation](#part-4:-report-generation) 
+* [Part 1: Plant Layout Design and Simulation](#part-1:-plant-layout-design-and-simulation)
+* [Part 2: Robot Simulation](#part-2:-robot-simulation)
 * [Links](#links)
 
-## Part 1: Plant Layout Design and Simulation [3 pts]
+## Part 1: Plant Layout Design and Simulation
 
-1. Import the parts model provided as mesh (obj files in the link section Page 3)
-2. Based on the size of the parts, setup the conveyors (4 in total, 1 in and 3 out)
-3. Setup the floor shop like adding enclosures, modifying the visual aspects.
-4. Program the motion of the conveyor.
-5. Program the in conveyor to spawn one of the three parts in random (consecutive spawning of the same part is allowed too for a maximum of 2 iterations)
+### Evaluation:
 
-## General info
+[x]Import the parts model provided as mesh (obj files in the link section Page 3)
+[x]Based on the size of the parts, setup the conveyors (4 in total, 1 in and 3 out)
+[x]Setup the floor shop like adding enclosures, modifying the visual aspects.
+[x]Program the motion of the conveyor
+[x]Program a conveyor to spawn parts with sensors
+[x]Make your mechanism with at least basic shapes
+[x]Program your mechanism to identify the target with a vision sensor (color coding is fine)
+[]Program the mechanism to pick and place the parts in the right conveyor
 
-
-
-## Part 2: Robot Simulation [15 pts]
+## Part 2: Robot Simulation
 
 1. Based on your requirement of workspace from your previous setup, select a type of mechansim and formulate its DH/MDH parameters. (more workspace is better)
 2. From your MDH parameters, draw the schematic representation. 
@@ -44,8 +42,4 @@ Your solution must also take into account the practicalities like accessibility 
 
 ## Links
 
-Model of the engine parts:
-```
-https://unigeit.sharepoint.com/:f:/r/sites/FLEXIBLEAUTOMATION2021/Documenti%20condivisi/ModelForSimulationAssignment?csf=1&web=1&e=B9YCQ1
-```
-
+The spawmning parts were built using [Mesh parts page](https://unigeit.sharepoint.com/:f:/r/sites/FLEXIBLEAUTOMATION2021/Documenti%20condivisi/ModelForSimulationAssignment?csf=1&web=1&e=B9YCQ1).
