@@ -96,9 +96,9 @@ INSERT THE DH MATLAB COLLUMN RESULT ---> IMAGE
 
 | Joints  |  Theta (θ°)  | Alpha (α°)  |  a (mm)|  d (mm)
 | ------------------- | ------------------- | ------------------- | ------------------- | ------------------- 
-|  Base -> Link1 |  θ1° |  90° |  0 |  1400 
+|  Base -> Link1 |  θ1° |   90° |  0 |  1400 
 |  Link1 -> Link2 |  θ2° |  -90° |  0 |  450  
-|  Link2 -> EE |  θ3° |  0° |  0 |  -300  
+|  Link2 -> EE |  θ3° |    0° |  0 |  -300  
 
 INSERT THE DH IN robot ---> IMAGE
 
