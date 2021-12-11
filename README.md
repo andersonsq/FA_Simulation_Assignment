@@ -12,8 +12,8 @@ Your task is to design a flexible manufacturing cell (FMC) with robot centered l
 Your solution must also take into account the practicalities like accessibility of robots and tools for maintenance, repair, and cleaning. Safety features like enclosures and a separate control station.
 
 ## Table of contents
-* [Part1: Plant Layout Design and Simulation](#part1:-plant-layout-design-and-simulation)
-* [Part2: Robot Simulation](#part2:-robot-simulation)
+* [Part1: Plant layout design and simulation](#part1:-plant-layout-design-and-simulation)
+* [Part2: Robot simulation](#part2:-robot-simulation)
 * [Links](#links)
 
 ## Part1: Plant Layout Design and Simulation
