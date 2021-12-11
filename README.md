@@ -9,73 +9,107 @@ Your task is to design a flexible manufacturing cell (FMC) with robot centered l
 3. Flexible in terms of volume and mix product handling
 4. Zero-defect product
 
-Your solution must also take into account the practicalities like accessibility of robots and tools for maintenance, repair, and cleaning. Safety features like enclosures and a separate control station. Following the successful design and implementation of the simulation, you must also provide two reports: one including the technical implementation details and assumptions made in developing the simulation, and the other for the client to prove that your solution works and convince them it is a good idea to implement your solution.
+Your solution must also take into account the practicalities like accessibility of robots and tools for maintenance, repair, and cleaning. Safety features like enclosures and a separate control station.
 
 ## Table of contents
-* [Part 1: Plant Layout Design and Simulation [3 pts]](#part-1:-plant-layout-design-and-simulation-[3-pts])
-* [General info](#general-info)
-* [Part 2: Robot Simulation [15 pts]](#part-2:-robot-simulation-[15-pts])
-* [Part 3: Analysis and Optimization of the cell](#part-3:-analysis-and-optimization-of-the-cell) 
-* [Part 4: Report Generation](#part-4:-report-generation) 
+* [Part 1. Plant layout design and simulation](#part-1.-plant-layout-design-and-simulation)
+* [Part 2. Robot simulation](#part-2.-robot-simulation)
 * [Links](#links)
 
-## Part 1: Plant Layout Design and Simulation [3 pts]
+## Part 1. Plant layout design and simulation
 
-1. Import the parts model provided as mesh (obj files in the link section Page 3)
-2. Based on the size of the parts, setup the conveyors (4 in total, 1 in and 3 out)
-3. Setup the floor shop like adding enclosures, modifying the visual aspects.
-4. Program the motion of the conveyor.
-5. Program the in conveyor to spawn one of the three parts in random (consecutive spawning of the same part is allowed too for a maximum of 2 iterations)
+### Evaluation:
 
-## General info
+- [x] Import the parts model provided as mesh (obj files in the link section Page 3)
+- [x] Based on the size of the parts, setup the conveyors (4 in total, 1 in and 3 out)
+- [x] Setup the floor shop like adding enclosures, modifying the visual aspects.
+- [x] Program the motion of the conveyor
+- [x] Program a conveyor to spawn parts with sensors
+- [x] Make your mechanism with at least basic shapes
+- [x] Program your mechanism to identify the target with a vision sensor (color coding is fine)
+- [ ] Program the mechanism to pick and place the parts in the right conveyor
 
+## Part 2. Robot simulation
 
+- [x] **Based on your requirement of workspace from your previous setup, select a type of mechansim and formulate its DH/MDH parameters. (more workspace is better)**
 
-## Part 2: Robot Simulation [15 pts]
+### MATLAB code for the DH
+```
+%Foward Kinematic for ABB Robot Porte Outil
+ 
+J0=(0*pi)/180; J1=(0*pi)/180; J2=(0*pi)/180;     
+d0=1300+100; d1=100+300+50; d2=-300;                                                       
+                                                                                                     
+alpha0=(90*pi)/180; alpha1=(-90*pi)/180; alpha2=(0*pi)/180; 
 
-1. Based on your requirement of workspace from your previous setup, select a type of mechansim and formulate its DH/MDH parameters. (more workspace is better)
-2. From your MDH parameters, draw the schematic representation. 
-3. Model necessary files in any CAD software of your choice and export it as OBJ 
-4. Using OOPs strategy, assemble your mechanism in CoppeliaSim.
-5. Choose an appropriate gripper for all three parts 
-6. Implement the inverse kinematics using the built in simIk API
-7. Implement Pick and place logic using trajectory planning. 
-8. Extend the logic above to pick the part an place it in the right conveyor
+N_of_links = ['J0';'J1';'J2'];
+Teta_deg = [J0;J1;J2];                       
+Translation = [d0;d1;d2];
+Alpha = [alpha0;alpha1;alpha2];
+ 
+T = table(N_of_links,Teta_deg,Alpha,Translation)
+```
+```
+%% STEP 1 BASE -> J1
+ 
+%Base J0 -> J1 
+%Translation d0
+%Rotation J0 around Z
+ 
+DH0 = [cos(J0) -cos(alpha0)*sin(J0)    sin(alpha0)*sin(J0)     0*cos(J0);
+       sin(J0)  cos(alpha0)*cos(J0)   -sin(alpha0)*cos(J0)     0*sin(J0);
+       0        sin(alpha0)            cos(alpha0)             d0;
+       0        0                      0                       1];
+ ```
+ ```
+ %% Step 2 J1 -> J2
+ 
+%J1 -> J2
+%Translation d1
+%Rotation J1 around Z
+ 
+DH1 = [cos(J1) -cos(alpha1)*sin(J1)    sin(alpha1)*sin(J1)    0*cos(J1);
+       sin(J1)  cos(alpha1)*cos(J1)   -sin(alpha1)*cos(J1)    0*sin(J1);
+       0        sin(alpha1)            cos(alpha1)            d1;
+       0        0                      0                      1];
+```
+``` 
+%% Step 3 J2 -> EE
+ 
+%J2 -> EE
+%Translation d2
+%Rotation J3 around Z
+ 
+DH2 = [cos(J2) -cos(alpha2)*sin(J2)    sin(alpha2)*sin(J2)   0*cos(J2);
+       sin(J2)  cos(alpha2)*cos(J2)   -sin(alpha2)*cos(J2)   0*sin(J2);
+       0        sin(alpha2)            cos(alpha2)           d2;
+       0        0                      0                     1];
+```
+``` 
+%% Fowars Kinematic combined
+ 
+EE = DH0*DH1*DH2
+```
+![](scenes/DH_robot.png)
 
-## Part 3: Analysis and Optimization of the cell
+- [x] **From your MDH parameters, draw the schematic representation.** 
 
-From part 1 and 2, you should have a robot picking and placing the parts in their corresponding conveyor line. Now you have to analysis and optimize your cell such that all the requirements mentioned in the problem statement is validated. Feel free to make any choice but each and every choice must be detailed and justified. Few hints for each requirement:
+| Joints  |  Theta (θ°)  | Alpha (α°)  |  a (mm)|  d (mm)
+| ------------------- | ------------------- | ------------------- | ------------------- | ------------------- 
+|  Base ---> Link1 |  θ1° |   90° |  0 |  1400 
+|  Link1 ---> Link2 |  θ2° |  -90° |  0 |  450  
+|  Link2 ---> EE |  θ3° |    0° |  0 |  -300  
 
-1. Ability to supply multiple vendors at the same time [1 pt]:
-- Ensure that the all three output conveyors have the same number of products
-- Adjust the speed of the conveyors and the routes to the delivery end
-2. Fully automated solution [1 pt]:
-- Ensure that there is no presence of human mannequin models in the enclosed area.
-- Add enclosures to indicate no human passing area.
-3. Flexible in terms of volume and mix product handling [1 pt]:
-- If the rate of number of items increase, how it will affect your solution and how will you manage it
-- If the parts are changes, how your solution will be able to adapt especially grasping the new product.
-4. Zero-defect product [1 pt]:
-- Using sensors make sure at the each conveyor out end that there are no wrong items.
+![](scenes/DH_collumn.png)
 
-These are only few hints, feel free to add any functionalities to meet the requirements.
-
-## Part 4: Report Generation
-
-Now that you have made a virtual prototype of your solution, its time to communicate the concepts of your solution. This will happen by preparing two different documents:
-
-### Technical report [2 pts]
-
-This report must include detailed description of your solution. Explain each part in detail with necessary images. Part 1: Include the conveyor program logic and how you added the obj to the scene. Part 2: Explain your choice of mechanism, include the schematic diagram of your mechanism. Explain your logic of pick and place. Part 3: This is the most important part to report, for each requirement explain in detail why the choices were made and how it improved your solution. Include graphs and other necessary materials to prove your point.
-
-## Client report [1 pt]
-
-This is a one page report providing the stats and non technical information to convince the client that your solution meets the requirement. Nothing simulation related. Include information about the cost of robot and time taken to adapt the system. Just positives about your solution and why it should be implemented in their loading and unloading station.
+- [x] \(Optional) Model necessary files in any CAD software of your choice and export it as OBJ 
+- [x] Using OOPs strategy, assemble your mechanism in CoppeliaSim.
+- [x] Choose an appropriate gripper for all three parts 
+- [x] Implement the inverse kinematics using the built in simIk API
+- [ ] Implement Pick and place logic using trajectory planning. 
+- [ ] Extend the logic above to pick the part an place it in the right conveyor
 
 ## Links
 
-Model of the engine parts:
-```
-https://unigeit.sharepoint.com/:f:/r/sites/FLEXIBLEAUTOMATION2021/Documenti%20condivisi/ModelForSimulationAssignment?csf=1&web=1&e=B9YCQ1
-```
+The spawmning parts were built using [Mesh parts page](https://unigeit.sharepoint.com/:f:/r/sites/FLEXIBLEAUTOMATION2021/Documenti%20condivisi/ModelForSimulationAssignment?csf=1&web=1&e=B9YCQ1).
 
