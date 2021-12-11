@@ -31,7 +31,7 @@ Your solution must also take into account the practicalities like accessibility 
 
 ## Part 2: Robot Simulation
 
-1. Based on your requirement of workspace from your previous setup, select a type of mechansim and formulate its DH/MDH parameters. (more workspace is better)
+- [x] Based on your requirement of workspace from your previous setup, select a type of mechansim and formulate its DH/MDH parameters. (more workspace is better)
 
 ### MATLAB code for the DH
 ```
@@ -90,14 +90,24 @@ DH2 = [cos(J2) -cos(alpha2)*sin(J2)    sin(alpha2)*sin(J2)   0*cos(J2);
  
 EE = DH0*DH1*DH2
 ```
+INSERT THE DH MATLAB COLLUMN RESULT ---> IMAGE
 
-2. From your MDH parameters, draw the schematic representation. 
-3. Model necessary files in any CAD software of your choice and export it as OBJ 
-4. Using OOPs strategy, assemble your mechanism in CoppeliaSim.
-5. Choose an appropriate gripper for all three parts 
-6. Implement the inverse kinematics using the built in simIk API
-7. Implement Pick and place logic using trajectory planning. 
-8. Extend the logic above to pick the part an place it in the right conveyor
+- [x] From your MDH parameters, draw the schematic representation. 
+
+| Joints  |  Theta (θ°)  | Alpha (α°)  |  a (mm)|  d (mm)
+| ------------------- | ------------------- | ------------------- | ------------------- | ------------------- 
+|  Base -> Link1 |  θ1° |  90° |  0 |  1400 
+|  Link1 -> Link2 |  θ2° |  -90° |  0 |  450  
+|  Link2 -> EE |  θ3° |  0° |  0 |  -300  
+
+INSERT THE DH IN robot ---> IMAGE
+
+- [x] \(Optional) Model necessary files in any CAD software of your choice and export it as OBJ 
+- [x] Using OOPs strategy, assemble your mechanism in CoppeliaSim.
+- [x] Choose an appropriate gripper for all three parts 
+- [x] Implement the inverse kinematics using the built in simIk API
+- [ ] Implement Pick and place logic using trajectory planning. 
+- [ ] Extend the logic above to pick the part an place it in the right conveyor
 
 ## Links
 
