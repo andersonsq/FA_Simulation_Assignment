@@ -90,7 +90,7 @@ DH2 = [cos(J2) -cos(alpha2)*sin(J2)    sin(alpha2)*sin(J2)   0*cos(J2);
  
 EE = DH0*DH1*DH2
 ```
-INSERT THE DH MATLAB COLLUMN RESULT ---> IMAGE
+![](scenes/DH_robot.png)
 
 - [x] **From your MDH parameters, draw the schematic representation.** 
 
@@ -100,7 +100,7 @@ INSERT THE DH MATLAB COLLUMN RESULT ---> IMAGE
 |  Link1 -> Link2 |  θ2° |  -90° |  0 |  450  
 |  Link2 -> EE |  θ3° |    0° |  0 |  -300  
 
-INSERT THE DH IN robot ---> IMAGE
+![](scenes/DH_collumn.png)
 
 - [x] \(Optional) Model necessary files in any CAD software of your choice and export it as OBJ 
 - [x] Using OOPs strategy, assemble your mechanism in CoppeliaSim.
