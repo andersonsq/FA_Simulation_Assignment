@@ -31,7 +31,7 @@ Your solution must also take into account the practicalities like accessibility 
 
 ## Part 2: Robot Simulation
 
-- [x] Based on your requirement of workspace from your previous setup, select a type of mechansim and formulate its DH/MDH parameters. (more workspace is better)
+- [x] **Based on your requirement of workspace from your previous setup, select a type of mechansim and formulate its DH/MDH parameters. (more workspace is better)**
 
 ### MATLAB code for the DH
 ```
@@ -92,7 +92,7 @@ EE = DH0*DH1*DH2
 ```
 INSERT THE DH MATLAB COLLUMN RESULT ---> IMAGE
 
-- [x] From your MDH parameters, draw the schematic representation. 
+- [x] **From your MDH parameters, draw the schematic representation.** 
 
 | Joints  |  Theta (θ°)  | Alpha (α°)  |  a (mm)|  d (mm)
 | ------------------- | ------------------- | ------------------- | ------------------- | ------------------- 
