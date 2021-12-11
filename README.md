@@ -20,14 +20,14 @@ Your solution must also take into account the practicalities like accessibility 
 
 ### Evaluation:
 
-- [x]Import the parts model provided as mesh (obj files in the link section Page 3)
-- [x]Based on the size of the parts, setup the conveyors (4 in total, 1 in and 3 out)
-- [x]Setup the floor shop like adding enclosures, modifying the visual aspects.
-- [x]Program the motion of the conveyor
-- [x]Program a conveyor to spawn parts with sensors
-- [x]Make your mechanism with at least basic shapes
-- [x]Program your mechanism to identify the target with a vision sensor (color coding is fine)
-- []Program the mechanism to pick and place the parts in the right conveyor
+- [x] Import the parts model provided as mesh (obj files in the link section Page 3)
+- [x] Based on the size of the parts, setup the conveyors (4 in total, 1 in and 3 out)
+- [x] Setup the floor shop like adding enclosures, modifying the visual aspects.
+- [x] Program the motion of the conveyor
+- [x] Program a conveyor to spawn parts with sensors
+- [x] Make your mechanism with at least basic shapes
+- [x] Program your mechanism to identify the target with a vision sensor (color coding is fine)
+- [ ] Program the mechanism to pick and place the parts in the right conveyor
 
 ## Part 2: Robot Simulation
 
@@ -49,6 +49,7 @@ Alpha = [alpha0;alpha1;alpha2];
  
 T = table(N_of_links,Teta_deg,Alpha,Translation)
 ```
+```
 %% STEP 1 BASE -> J1
  
 %Base J0 -> J1 
@@ -60,6 +61,7 @@ DH0 = [cos(J0) -cos(alpha0)*sin(J0)    sin(alpha0)*sin(J0)     0*cos(J0);
        0        sin(alpha0)            cos(alpha0)             d0;
        0        0                      0                       1];
  ```
+ ```
  %% Step 2 J1 -> J2
  
 %J1 -> J2
@@ -70,6 +72,7 @@ DH1 = [cos(J1) -cos(alpha1)*sin(J1)    sin(alpha1)*sin(J1)    0*cos(J1);
        sin(J1)  cos(alpha1)*cos(J1)   -sin(alpha1)*cos(J1)    0*sin(J1);
        0        sin(alpha1)            cos(alpha1)            d1;
        0        0                      0                      1];
+```
 ``` 
 %% Step 3 J2 -> EE
  
@@ -81,6 +84,7 @@ DH2 = [cos(J2) -cos(alpha2)*sin(J2)    sin(alpha2)*sin(J2)   0*cos(J2);
        sin(J2)  cos(alpha2)*cos(J2)   -sin(alpha2)*cos(J2)   0*sin(J2);
        0        sin(alpha2)            cos(alpha2)           d2;
        0        0                      0                     1];
+```
 ``` 
 %% Fowars Kinematic combined
  
