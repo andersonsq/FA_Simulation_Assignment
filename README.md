@@ -112,4 +112,7 @@ EE = DH0*DH1*DH2
 ## Links
 
 The spawmning parts were built using [Mesh parts page](https://unigeit.sharepoint.com/:f:/r/sites/FLEXIBLEAUTOMATION2021/Documenti%20condivisi/ModelForSimulationAssignment?csf=1&web=1&e=B9YCQ1).
+<<<<<<< HEAD
 
+=======
+>>>>>>> 8fc57d5361f2957dc0ad5cf97d7dc35775607ba7
