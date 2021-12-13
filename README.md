@@ -90,7 +90,7 @@ DH2 = [cos(J2) -cos(alpha2)*sin(J2)    sin(alpha2)*sin(J2)   0*cos(J2);
  
 EE = DH0*DH1*DH2
 ```
-![](scenes/DH_robot.png)
+![](scenes/DH_collumn.PNG)
 
 - [x] **From your MDH parameters, draw the schematic representation.** 
 
@@ -100,7 +100,7 @@ EE = DH0*DH1*DH2
 |  Link1 ---> Link2 |  θ2° |  -90° |  0 |  450  
 |  Link2 ---> EE |  θ3° |    0° |  0 |  -300  
 
-![](scenes/DH_collumn.png)
+![](scenes/DH_robot.PNG)
 
 - [x] \(Optional) Model necessary files in any CAD software of your choice and export it as OBJ 
 - [x] Using OOPs strategy, assemble your mechanism in CoppeliaSim.
@@ -112,7 +112,4 @@ EE = DH0*DH1*DH2
 ## Links
 
 The spawmning parts were built using [Mesh parts page](https://unigeit.sharepoint.com/:f:/r/sites/FLEXIBLEAUTOMATION2021/Documenti%20condivisi/ModelForSimulationAssignment?csf=1&web=1&e=B9YCQ1).
-<<<<<<< HEAD
 
-=======
->>>>>>> 8fc57d5361f2957dc0ad5cf97d7dc35775607ba7
